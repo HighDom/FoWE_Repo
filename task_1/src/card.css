@@ -1,12 +1,19 @@
 article {
+  flex: 1;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  width: 350px;
+  width: 450px;
   line-height: 1.5rem;
+
+  /* adjust height to actual content and not predefined */
 
   & header {
     border-bottom: 1px solid var(--border-color);
     padding: var(--space);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
     & a {
       text-decoration: none;
@@ -14,18 +21,50 @@ article {
   }
 
   & main {
-    padding: var(--space);
     width: inherit;
+    align-items: center;
+    padding: var(--space);
+
     & img {
-      width: inherit;
+      width: 100%;
+      border-radius: var(--border-radius);
+      padding: 0;
+      display:block;
     }
   }
 
   & footer {
     border-top: 1px solid var(--border-color);
     & ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
       padding: 0;
       list-style: none;
+      /* Add Lines inbetween Icons*/
     }
+    
   }
+}
+
+
+article:has(img) main {
+  padding: 0;
+}
+
+article:has(footer) img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+article:has(header) img {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space);
 }
