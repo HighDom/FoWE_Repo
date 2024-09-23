@@ -1,78 +1,77 @@
-article {
+.article-card {
   flex: 1;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   width: 450px;
   line-height: 1.5rem;
   height: fit-content;
-
-  /* adjust height to actual content and not predefined */
-
-  & header {
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--space);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    & a {
-      text-decoration: none;
-    }
-  }
-
-  & main {
-    width: inherit;
-    align-items: center;
-    padding: var(--space);
-
-    & img {
-      width: 100%;
-      border-radius: var(--border-radius);
-      padding: 0;
-      display:block;
-    }
-  }
-
-  & footer {
-    border-top: 1px solid var(--border-color);
-    & ul {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-      padding: 0;
-      list-style: none;
-      
-      & li:not(:last-child)::after {
-        content: '';
-        display: inline-block;
-        width: 1px;
-        height: 9px;
-        background-color: var(--border-color);
-        margin-left: 59px;
-      }
-    }
-  }
-  
 }
 
+.article-card header {
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
-article:has(img) main {
+.article-card header a {
+  text-decoration: none;
+}
+
+.article-card main {
+  width: inherit;
+  align-items: center;
+  padding: var(--space);
+}
+
+.article-card main img {
+  width: 100%;
+  border-radius: var(--border-radius);
   padding: 0;
+  display: block;
 }
 
-article:has(footer) img {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+/* Footer styling */
+.article-card footer {
+  border-top: 1px solid var(--border-color);
 }
 
-article:has(header) img {
+.article-card footer ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0;
+  list-style: none;
+}
+
+.article-card footer ul li:not(:last-child)::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 9px;
+  background-color: var(--border-color);
+  margin-left: 59px;
+}
+
+/* Combined has() selectors for cards with images */
+.article-card:has(header) img {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-body {
+.article-card:has(footer) img {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.article-card:has(img) main {
+  padding: 0;
+}
+
+.card-layout {
   display: flex;
   flex-direction: row;
   gap: var(--space);
