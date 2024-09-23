@@ -4,6 +4,7 @@ article {
   border-radius: var(--border-radius);
   width: 450px;
   line-height: 1.5rem;
+  height: fit-content;
 
   /* adjust height to actual content and not predefined */
 
